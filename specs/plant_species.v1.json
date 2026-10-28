@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "note": "小薄荷与小蘑菇技术版资源均已接入；不等于正式美术验收。",
+  "species": [
+    {
+      "id": "mint",
+      "name_zh_cn": "小薄荷",
+      "rarity": "common",
+      "available_in_v0_1": true,
+      "eligible_for_first_free_pick": true,
+      "unlock_price_drops": 6,
+      "art_asset_status": "technical_prototype_not_final",
+      "art_manifest": "assets/species/mint/manifest.json",
+      "dialogue_set_id": "mint",
+      "drought_multiplier": 1.0,
+      "idle_motion_profile": "leaf_sway",
+      "wake_motion_profile": "leaf_unfold"
+    },
+    {
+      "id": "mushroom",
+      "name_zh_cn": "小蘑菇",
+      "rarity": "common",
+      "available_in_v0_1": true,
+      "eligible_for_first_free_pick": true,
+      "unlock_price_drops": 6,
+      "art_asset_status": "alpha_extracted_prototype_not_final",
+      "art_manifest": "assets/species/mushroom/manifest.json",
+      "dialogue_set_id": "mushroom",
+      "drought_multiplier": 1.0,
+      "idle_motion_profile": "cap_breathe",
+      "wake_motion_profile": "cap_open"
+    }
+  ],
+  "future_expansion": {
+    "secret_species_supported": true,
+    "secret_species_in_v0_1": [],
+    "note": "隐藏款仅预留机制，不创建不存在的图像引用。"
+  }
+}

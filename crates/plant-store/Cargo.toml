@@ -1,0 +1,10 @@
+[package]
+name = "plant-store"
+version = "0.3.0"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+plant-life-core = { path = "../life-core" }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde_json = "1"

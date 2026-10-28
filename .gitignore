@@ -1,0 +1,9 @@
+node_modules/
+dist/
+target/
+src-tauri/gen/schemas/
+*.log
+tick_log.txt
+p0_*.png
+p1_*.png
+p2_*.png

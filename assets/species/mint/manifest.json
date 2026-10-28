@@ -1,0 +1,102 @@
+{
+  "species_id": "mint",
+  "asset_version": "0.1.0-prototype",
+  "art_style": "fresh hand-drawn picturebook; faceless",
+  "source_atlas": "source/original_generated_atlas.png",
+  "transparent": true,
+  "canvas": {
+    "width": 512,
+    "height": 512
+  },
+  "anchors": {
+    "pot_base": [
+      256,
+      475
+    ],
+    "stem_sway": [
+      256,
+      312
+    ]
+  },
+  "stages": [
+    {
+      "id": "healthy",
+      "path": "states/healthy.png"
+    },
+    {
+      "id": "thirsty",
+      "path": "states/thirsty.png"
+    },
+    {
+      "id": "dry",
+      "path": "states/dry.png"
+    },
+    {
+      "id": "critical",
+      "path": "states/critical.png"
+    },
+    {
+      "id": "dead",
+      "path": "states/dead.png"
+    },
+    {
+      "id": "sleep",
+      "path": "states/sleep.png"
+    }
+  ],
+  "layer_set": "base/pot.png and base/canopy.png (coarse split; not individual leaf rig)",
+  "auxiliary_layers": [
+    "layers/auxiliary/pot_candidate.png",
+    "layers/auxiliary/soil_candidate.png",
+    "layers/auxiliary/stem_candidate.png",
+    "layers/auxiliary/leaf_big_candidate.png",
+    "layers/auxiliary/leaf_mid_candidate.png",
+    "layers/auxiliary/leaf_small_candidate.png"
+  ],
+  "animations": {
+    "idle_healthy": {
+      "fps": 6.667,
+      "loop": true,
+      "frames": 24,
+      "duration_ms": 3600
+    },
+    "go_to_sleep": {
+      "fps": 11.76,
+      "loop": false,
+      "frames": 12,
+      "duration_ms": 1020
+    },
+    "wake_up": {
+      "fps": 11.76,
+      "loop": false,
+      "frames": 12,
+      "duration_ms": 1020
+    },
+    "water_recover": {
+      "fps": 10,
+      "loop": false,
+      "frames": 20,
+      "duration_ms": 2000
+    },
+    "stage_transition": {
+      "fps": 10,
+      "loop": false,
+      "frames": 20,
+      "duration_ms": 2000
+    },
+    "death_once": {
+      "fps": 10,
+      "loop": false,
+      "frames": 20,
+      "duration_ms": 2000
+    }
+  },
+  "known_limitations": [
+    "The originating concept board is a low-resolution illustrated atlas, not a clean isolated original.",
+    "Transparency is computationally reconstructed from a PAINTED checkerboard, so edges may have residual halos.",
+    "Full 512px sprites are upscaled from roughly 120px source character artwork; do not treat as native 512px art.",
+    "The canopy/pot split supports a simple animation proof, but independent leaf pivot animation is not registered.",
+    "Morph transitions are quick keypose cuts with squash/settle, not physically interpolated leaf joint poses.",
+    "Mushroom is intentionally deferred until mint art/rig is approved."
+  ]
+}

@@ -1,0 +1,35 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小植物动画验证台 v0.4</title>
+<link rel="stylesheet" href="./src/styles.css"><link rel="stylesheet" href="./src/widget-v04.css">
+<style>
+body.plant-body{width:100%!important;height:auto!important;min-height:100vh!important;overflow:auto!important;background:#e6ede4!important;padding:22px!important;user-select:auto}
+.lab{max-width:1020px;margin:auto;display:grid;grid-template-columns:320px minmax(260px,1fr);gap:26px;align-items:start}
+.preview-frame{width:300px;height:336px;background:#334950;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 12px 40px #29402c22}
+.preview-frame.light{background:#e5ebe0}.lab .widget{position:absolute;top:0;left:0}
+.controls{padding:24px;background:#fffaf1;border:1px solid #e5dcc8;border-radius:25px;box-shadow:0 8px 30px #52694b12}
+.controls h1{font-size:24px;color:#567a58;margin:0 0 8px}.controls p{font-size:13px;color:#887e6c;line-height:1.8;margin:0 0 15px}
+.group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.group button{padding:9px 13px;border-radius:14px;border:1px solid #d6dfc7;background:#f5faef;color:#5b795e;font-size:12px}
+.group button.active{background:#87ab82;color:white}.hint{font-size:12px;line-height:1.75;color:#7a806f}
+@media(max-width:700px){.lab{grid-template-columns:1fr}}
+</style></head><body class="plant-body"><div class="lab">
+<div class="preview-frame" id="preview-frame"><div class="widget" id="app">
+<div class="speech-bubble visible" id="bubble">今天的阳光刚刚好～</div>
+<div class="plant-zone" id="plant-zone"><div id="plant-layered" class="plant-layered" style="display:block" data-species="mint" data-stage="healthy">
+<img id="layer-pot" class="layer layer-pot" alt=""><img id="layer-stem" class="layer layer-stem" alt=""><img id="layer-top" class="layer layer-top" alt=""></div>
+<img id="plant-sprite" style="display:none" alt=""><img id="transition-sprite" style="display:none" alt=""><div class="dew" id="dew">💧</div></div>
+<div class="pillrow"><span class="soft-pill" id="stage-pill">精神满满 · 还有 45 分钟</span><button class="handle" id="drag-handle">⠿</button><button class="handle" id="more">⋯</button></div>
+<div class="context-menu" id="context-menu" hidden><button>💧 我喝水啦</button><button>🌙 让小植物睡一会儿</button><button>☕ 暂时休息 1 小时</button><button>☀️ 唤醒小植物</button><button>🌱 种子铺与设置</button><button>☁️ 暂时隐藏窗口</button></div></div></div>
+<section class="controls"><h1>🌿 动画验证台 · v0.4</h1><p>这是离线视觉验证工具，使用项目实际的透明运动图层。它不修改生命状态机，也不代表 Windows 原生安装包已验证。</p>
+<strong>植物</strong><div class="group" id="species"><button class="active" data-value="mint">小薄荷</button><button data-value="mushroom">小蘑菇</button></div>
+<strong>生命周期</strong><div class="group" id="stages"><button class="active" data-value="healthy">健康</button><button data-value="thirsty">轻微缺水</button><button data-value="dry">严重缺水</button><button data-value="critical">濒死</button><button data-value="dead">枯死</button><button data-value="sleep">睡眠</button></div>
+<strong>交互与背景</strong><div class="group" id="actions"><button data-value="water">💧 喝水恢复</button><button data-value="wake">☀️ 唤醒</button><button data-value="menu">⋯ 菜单</button><button data-value="bubble">💬 对话</button><button data-value="background">◐ 背景切换</button></div>
+<p class="hint">观察：花盆始终不摇晃；薄荷叶冠和蘑菇菌盖轻摆；睡眠微动；枯死完全静止；深浅色背景下有无白边、黑边；菜单和气泡是否完全在挂件窗口内。</p></section></div>
+<script>
+const $=id=>document.getElementById(id);let species='mint',stage='healthy',timer=null;
+const text={mint:{healthy:'今天的阳光刚刚好～',thirsty:'我的叶子有点软软的啦。',dry:'喝口水吧，我也伸伸叶子～',critical:'快蔫掉了……',dead:'我先在这儿歇下啦。',sleep:'你忙你的，我先眯一会儿～'},mushroom:{healthy:'我的小伞晒到太阳啦～',thirsty:'伞缘有一点软软的。',dry:'一起喝口水吧～',critical:'小伞要垂下来啦……',dead:'小伞住进纪念花园啦。',sleep:'让我缩进小伞里一会儿～'}};
+function draw(){const root=$('plant-layered');root.dataset.species=species;root.dataset.stage=stage;for(const [tag,part] of [['layer-pot','pot'],['layer-stem','stem'],['layer-top','crown']])$(tag).src='./plant-assets/'+species+'/motion_layers/'+stage+'/'+part+'.png';$('bubble').textContent=text[species][stage];$('stage-pill').textContent=stage==='dead'?'已枯萎 · 自主选择重种':stage==='sleep'?'正在休息 · 计时暂停':'当前状态：'+stage;document.querySelectorAll('#species button').forEach(x=>x.classList.toggle('active',x.dataset.value===species));document.querySelectorAll('#stages button').forEach(x=>x.classList.toggle('active',x.dataset.value===stage));}
+function impulse(kind){const root=$('plant-layered');root.classList.remove('watering','waking');void root.offsetWidth;root.classList.add(kind);clearTimeout(timer);timer=setTimeout(()=>root.classList.remove(kind),1150);}
+$('species').onclick=e=>{const v=e.target.dataset.value;if(v){species=v;draw()}};
+$('stages').onclick=e=>{const v=e.target.dataset.value;if(v){stage=v;draw()}};
+$('actions').onclick=e=>{const v=e.target.dataset.value;if(!v)return;if(v==='water'){stage='healthy';draw();impulse('watering');$('dew').classList.remove('drop');void $('dew').offsetWidth;$('dew').classList.add('drop')}if(v==='wake'){stage='healthy';draw();impulse('waking')}if(v==='menu'){$('context-menu').hidden=!$('context-menu').hidden;$('bubble').classList.toggle('visible',$('context-menu').hidden)}if(v==='bubble')$('bubble').classList.toggle('visible');if(v==='background')$('preview-frame').classList.toggle('light')};
+$('more').onclick=()=>{$('context-menu').hidden=!$('context-menu').hidden;$('bubble').classList.toggle('visible',$('context-menu').hidden)};draw();
+</script></body></html>

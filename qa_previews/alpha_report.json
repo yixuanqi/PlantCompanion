@@ -1,0 +1,62 @@
+{
+  "mint/healthy": {
+    "size": "256x256",
+    "max_pixel_error": 4,
+    "opaque_pixels": 27635
+  },
+  "mint/thirsty": {
+    "size": "256x256",
+    "max_pixel_error": 4,
+    "opaque_pixels": 28183
+  },
+  "mint/dry": {
+    "size": "256x256",
+    "max_pixel_error": 3,
+    "opaque_pixels": 26758
+  },
+  "mint/critical": {
+    "size": "256x256",
+    "max_pixel_error": 2,
+    "opaque_pixels": 25290
+  },
+  "mint/dead": {
+    "size": "256x256",
+    "max_pixel_error": 4,
+    "opaque_pixels": 24640
+  },
+  "mint/sleep": {
+    "size": "256x256",
+    "max_pixel_error": 6,
+    "opaque_pixels": 22996
+  },
+  "mushroom/healthy": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 23548
+  },
+  "mushroom/thirsty": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 22613
+  },
+  "mushroom/dry": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 20875
+  },
+  "mushroom/critical": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 20385
+  },
+  "mushroom/dead": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 16473
+  },
+  "mushroom/sleep": {
+    "size": "256x256",
+    "max_pixel_error": 0,
+    "opaque_pixels": 17215
+  }
+}

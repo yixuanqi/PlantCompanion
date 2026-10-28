@@ -1,0 +1,54 @@
+/* v0.4: widget-only layout. The window must match 300x336 CSS pixels in tauri.conf.json. */
+html:has(.plant-body),body.plant-body{width:300px;height:336px;background:transparent!important;overflow:hidden!important;margin:0;padding:0}
+body.plant-body .widget{position:relative;width:300px;height:336px;overflow:hidden;background:transparent!important;border:0!important;box-shadow:none!important;isolation:isolate}
+body.plant-body .plant-zone{position:absolute;inset:auto;left:39px;top:63px;width:222px;height:222px;display:block;cursor:pointer;outline:none;overflow:visible;touch-action:none}
+body.plant-body .plant-layered{position:absolute;inset:0;width:222px;height:222px;display:none!important;pointer-events:none;overflow:visible}
+body.plant-body .plant-layered[style*="block"]{display:block!important}
+body.plant-body .plant-layered .layer{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;margin:0;transform:none;filter:none;will-change:auto}
+body.plant-body .plant-layered .layer-pot{z-index:1;filter:drop-shadow(0 5px 5px rgba(58,56,33,.10));animation:none!important}
+body.plant-body .plant-layered .layer-stem{z-index:2;transform-origin:50% 70%;will-change:transform}
+body.plant-body .plant-layered .layer-top{z-index:3;transform-origin:50% 68%;will-change:transform}
+body.plant-body .plant-layered[data-species="mushroom"] .layer-top{transform-origin:50% 54%}
+body.plant-body .plant-layered[data-species="mushroom"] .layer-stem{transform-origin:50% 70%}
+body.plant-body .plant-layered[data-stage="healthy"][data-species="mint"] .layer-top,
+body.plant-body .plant-layered[data-stage="thirsty"][data-species="mint"] .layer-top,
+body.plant-body .plant-layered[data-stage="dry"][data-species="mint"] .layer-top,
+body.plant-body .plant-layered[data-stage="critical"][data-species="mint"] .layer-top{animation:mint-local-sway 4.9s ease-in-out infinite}
+body.plant-body .plant-layered[data-stage="healthy"][data-species="mushroom"] .layer-top,
+body.plant-body .plant-layered[data-stage="thirsty"][data-species="mushroom"] .layer-top,
+body.plant-body .plant-layered[data-stage="dry"][data-species="mushroom"] .layer-top,
+body.plant-body .plant-layered[data-stage="critical"][data-species="mushroom"] .layer-top{animation:mushroom-local-sway 5.3s ease-in-out infinite}
+body.plant-body .plant-layered[data-stage="healthy"][data-species="mushroom"] .layer-stem,
+body.plant-body .plant-layered[data-stage="thirsty"][data-species="mushroom"] .layer-stem{animation:stem-local-sway 5.3s ease-in-out infinite}
+body.plant-body .plant-layered[data-stage="sleep"] .layer-top{animation:sleep-local-sway 6.8s ease-in-out infinite}
+body.plant-body .plant-layered[data-stage="dead"] .layer-top,
+body.plant-body .plant-layered[data-stage="dead"] .layer-stem{animation:none!important;transform:none!important}
+body.plant-body .plant-layered.watering .layer-top{animation:water-leaf-response 1.1s ease-out 1!important}
+body.plant-body .plant-layered.waking .layer-top{animation:wake-leaf-response .95s ease-out 1!important}
+body.plant-body .plant-layered.falling .layer-top{animation:fall-asleep-leaf .95s ease-out 1!important}
+body.plant-body #plant-sprite{position:absolute;inset:0;display:none;width:100%;height:100%;animation:none!important}
+body.plant-body #transition-sprite{position:absolute;inset:0;width:100%;height:100%;max-height:none;max-width:none;margin:0;filter:none;pointer-events:none;z-index:4;opacity:0;display:none;transform:none!important;mask-image:linear-gradient(to bottom,#000 0%,#000 60%,transparent 75%);transition:opacity .45s ease-out}
+body.plant-body #transition-sprite.crossfading{opacity:1}
+body.plant-body #transition-sprite.fade-out{opacity:0}
+body.plant-body .speech-bubble{position:absolute;z-index:20;top:10px;left:17px;right:auto;bottom:auto;width:266px;min-height:42px;max-height:92px;display:flex;justify-content:center;align-items:center;padding:10px 16px;border:1.4px solid #dccbaa;border-radius:20px 23px 19px 24px;background:linear-gradient(160deg,rgba(255,253,244,.98),rgba(255,246,230,.97));font-size:12px;line-height:1.55;white-space:normal;overflow-wrap:anywhere;box-shadow:0 6px 17px rgba(87,70,40,.16);opacity:0;transform:translateY(-5px) scale(.97);transition:opacity .2s,transform .2s;pointer-events:none}
+body.plant-body .speech-bubble.visible{opacity:1;transform:translateY(0) scale(1)}
+body.plant-body .speech-bubble:after{left:67%;bottom:-6px;background:#fff7e9}
+body.plant-body .speech-bubble.below{top:10px;bottom:auto}
+body.plant-body .speech-bubble.below:after{top:auto;bottom:-6px;transform:rotate(45deg)}
+body.plant-body .pillrow{position:absolute;z-index:8;bottom:10px;left:10px;right:10px;height:36px;display:flex;gap:6px;align-items:center}
+body.plant-body .soft-pill{font-size:11px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;height:32px;display:flex;align-items:center;justify-content:center;padding:5px 9px;background:rgba(247,250,237,.97)}
+body.plant-body .handle{width:34px;height:34px;min-width:34px;border-radius:50%;font-size:17px;background:rgba(255,251,242,.97)}
+body.plant-body .context-menu{position:absolute;z-index:30;right:9px;left:auto;top:auto;bottom:55px;width:228px;max-height:260px;overflow-y:auto;overflow-x:hidden;padding:7px;background:rgba(255,252,244,.98);border:1px solid #e4d3b7;border-radius:18px;box-shadow:0 9px 28px rgba(55,50,35,.2)}
+body.plant-body .context-menu[hidden]{display:none}
+body.plant-body .context-menu button{padding:9px 11px;font-size:12px;line-height:1.35;min-height:35px}
+body.plant-body .dew{top:-4px;left:50%;z-index:10;pointer-events:none}
+body.plant-body .demo-flag{top:0;right:0;max-width:225px;opacity:.5}
+@keyframes mint-local-sway{0%,100%{transform:rotate(-.85deg)}28%{transform:rotate(.32deg) translateY(-.2px)}63%{transform:rotate(.95deg) translateY(-.55px)}}
+@keyframes mushroom-local-sway{0%,100%{transform:rotate(-.65deg)}30%{transform:rotate(.35deg) translateY(-.25px)}65%{transform:rotate(.85deg) translateY(-.5px)}}
+@keyframes stem-local-sway{0%,100%{transform:rotate(-.28deg)}55%{transform:rotate(.30deg)}}
+@keyframes sleep-local-sway{0%,100%{transform:scaleY(.994) translateY(1px)}50%{transform:scaleY(1.004) translateY(0)}}
+@keyframes water-leaf-response{0%{transform:rotate(-1.5deg) scaleY(.97)}30%{transform:rotate(1.4deg) scaleY(1.035)}60%{transform:rotate(-.6deg) scaleY(.995)}80%{transform:rotate(.25deg) scaleY(1.009)}100%{transform:none}}
+@keyframes wake-leaf-response{0%{transform:rotate(-1.2deg) scaleY(.94) translateY(3px)}45%{transform:rotate(.9deg) scaleY(1.04) translateY(-1px)}100%{transform:none}}
+@media(prefers-reduced-motion:reduce){body.plant-body .plant-layered .layer{animation:none!important;transition:none!important}body.plant-body .speech-bubble{transition:none!important}}
+
+@keyframes fall-asleep-leaf{0%{transform:rotate(.5deg) scaleY(1.025)}55%{transform:rotate(-.6deg) scaleY(.972) translateY(2px)}100%{transform:none}}
