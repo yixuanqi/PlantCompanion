@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>桌面小植物</title><link rel="stylesheet" href="/src/styles.css"/><link rel="stylesheet" href="/src/widget-v04.css"/></head>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>桌面小植物</title><link rel="stylesheet" href="/src/styles.css"/><link rel="stylesheet" href="/src/widget-v04.css"/><link rel="stylesheet" href="/src/widget-interaction.css"/></head>
 <body class="plant-body">
   <div id="app" class="widget">
     <div id="bubble" class="speech-bubble" aria-live="polite"></div>
@@ -7,16 +7,12 @@
         <img id="layer-pot" class="layer layer-pot" draggable="false" alt=""/>
         <img id="layer-stem" class="layer layer-stem" draggable="false" alt=""/>
         <img id="layer-top" class="layer layer-top" draggable="false" alt=""/>
+        <img id="layer-foliage" class="layer layer-foliage" draggable="false" alt=""/>
       </div>
-      <img id="plant-sprite" draggable="false" alt="正在陪你工作的小植物"/><img id="transition-sprite" aria-hidden="true" draggable="false" alt=""/>
       <div id="plant-placeholder" class="empty-plant"><span>🌱</span><small>你的桌面还空着呢</small></div>
       <div class="dew" id="dew">💧</div>
     </div>
-    <div class="pillrow">
-      <span id="stage-pill" class="soft-pill">欢迎来到小花园</span>
-      <button id="drag-handle" class="handle" title="拖动位置" aria-label="拖动小植物">⠿</button>
-      <button id="more" class="handle" title="更多操作" aria-label="更多操作">⋯</button>
-    </div>
+    <div id="status-tip" class="status-tip" role="status" aria-live="off"></div>
     <div class="context-menu" id="context-menu" hidden>
       <button id="menu-drink">💧 我喝水啦</button>
       <button id="menu-sleep">🌙 让小植物睡一会儿</button>

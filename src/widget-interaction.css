@@ -1,0 +1,19 @@
+/* View-only zoom/alpha. Root scales alongside the native Tauri window (268x292 logical px). */
+:root { --widget-zoom: 1; --plant-opacity: 1; }
+html:has(body.plant-body), body.plant-body {
+  width: calc(268px * var(--widget-zoom)) !important;
+  height: calc(292px * var(--widget-zoom)) !important;
+  overflow: hidden !important;
+}
+body.plant-body .widget {
+  width: 268px !important;
+  height: 292px !important;
+  transform-origin: left top;
+  transform: scale(var(--widget-zoom));
+  overflow: hidden !important;
+}
+body.plant-body .plant-layered,
+body.plant-body .empty-plant { opacity: var(--plant-opacity); }
+/* Native drag starts only after crossing a movement threshold. Prevent selection/ghost images. */
+body.plant-body .plant-zone { user-select: none; -webkit-user-select: none; cursor: grab; }
+body.plant-body .plant-zone.drag-intent { cursor: grabbing; }

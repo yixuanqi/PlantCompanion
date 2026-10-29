@@ -11,8 +11,11 @@ for(const name of ['plant','settings','bridge']){
  fs.writeFileSync(path.join(out,'src',name+'.js'),js);
 }
 fs.copyFileSync(path.join(root,'src/styles.css'),path.join(out,'src/styles.css'));
+fs.copyFileSync(path.join(root,'src/widget-v04.css'),path.join(out,'src/widget-v04.css'));
+fs.copyFileSync(path.join(root,'src/widget-interaction.css'),path.join(out,'src/widget-interaction.css'));
+fs.copyFileSync(path.join(root,'src/widget-controls.js'),path.join(out,'src/widget-controls.js'));
 for(const name of ['index','settings']){
- let html=fs.readFileSync(path.join(root,name+'.html'),'utf8').replaceAll(`src="/src/${name==='index'?'plant':'settings'}.ts"`,`src="./src/${name==='index'?'plant':'settings'}.js"`).replace('href="/src/styles.css"','href="./src/styles.css"');
+ let html=fs.readFileSync(path.join(root,name+'.html'),'utf8').replaceAll(`src="/src/${name==='index'?'plant':'settings'}.ts"`,`src="./src/${name==='index'?'plant':'settings'}.js"`).replace('href="/src/styles.css"','href="./src/styles.css"').replace('href="/src/widget-v04.css"','href="./src/widget-v04.css"').replace('href="/src/widget-interaction.css"','href="./src/widget-interaction.css"');
  fs.writeFileSync(path.join(out,name+'.html'),html);
 }
 fs.cpSync(path.join(root,'public/plant-assets'),path.join(out,'plant-assets'),{recursive:true,force:true});

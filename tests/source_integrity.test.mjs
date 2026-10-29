@@ -35,13 +35,13 @@ test('both initial species have true RGBA PNG lifecycle assets',()=>{
   }
  }
 });
-test('both species have playable animation sequences',()=>{
- for(const species of ['mint','mushroom']){
-  for(const seq of ['idle_healthy','water_recover','go_to_sleep','wake_up','death_once']){
-    const directory=path.join(root,'public/plant-assets',species,'sequences',seq);
-    assert.ok(fs.readdirSync(directory).filter(v=>v.endsWith('.png')).length>=8,`${species}/${seq}`);
-  }
+test('mint retains frame sequences while mushroom has procedural 4-layer animations',()=>{
+ for(const seq of ['idle_healthy','water_recover','go_to_sleep','wake_up','death_once']){
+  const directory=path.join(root,'public/plant-assets/mint/sequences',seq);
+  assert.ok(fs.readdirSync(directory).filter(v=>v.endsWith('.png')).length>=8,`mint/${seq}`);
  }
+ const css=fs.readFileSync(path.join(root,'src/widget-v04.css'),'utf8');
+ assert.match(css,/cap-idle/);assert.match(css,/sleep-idle/);assert.match(css,/water-response/);
 });
 test('SQLite uses an atomic snapshot / wallet / memorial transaction',()=>{
  const store=fs.readFileSync(path.join(root,'crates/plant-store/src/lib.rs'),'utf8');
