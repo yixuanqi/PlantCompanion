@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img"><title>小蘑菇 sleep · 独立矢量分层原画</title><defs>
+    <linearGradient id="cap" x1="0" x2=".7" y1="0" y2="1"><stop offset="0" stop-color="#ffe6c4"/><stop offset=".27" stop-color="#f9a69f"/><stop offset=".65" stop-color="#f3a09f"/><stop offset="1" stop-color="#d77478"/></linearGradient>
+    <linearGradient id="underside" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcf2d8"/><stop offset="1" stop-color="#ceae91"/></linearGradient>
+    <linearGradient id="stalk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9b99a"/><stop offset=".28" stop-color="#fff4df"/><stop offset=".7" stop-color="#fbecd2"/><stop offset="1" stop-color="#d2b292"/></linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2=".8"><stop offset="0" stop-color="#f7dfb9"/><stop offset=".28" stop-color="#fffbeb"/><stop offset=".73" stop-color="#fff2d7"/><stop offset="1" stop-color="#e6bc9b"/></linearGradient>
+    <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e7ef9e"/><stop offset=".5" stop-color="#b4d678"/><stop offset="1" stop-color="#80ac66"/></linearGradient>
+    <linearGradient id="leafMid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c7df83"/><stop offset=".55" stop-color="#8fbc65"/><stop offset="1" stop-color="#6b9e5d"/></linearGradient>
+    <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#accb76"/><stop offset="1" stop-color="#6d9b5a"/></linearGradient>
+    <radialGradient id="petal"><stop offset="0" stop-color="#fffef3"/><stop offset=".8" stop-color="#ffeed8"/><stop offset="1" stop-color="#e8cbb4"/></radialGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#795c40"/><stop offset="1" stop-color="#b18a5b"/></linearGradient>
+    </defs><g id="layer-stalk" transform="translate(-8,51) translate(0,42) scale(1,.91)"><g id="stalk">
+ <path d="M433 436 C445 461 447 500 433 553 C425 585 410 608 420 637 C436 660 585 661 600 638 C607 608 592 574 583 539 C570 493 584 460 592 440 C539 422 482 420 433 436Z" fill="url(#stalk)" stroke="#bda38a" stroke-width="7" stroke-linejoin="round"/>
+ <path d="M468 469 C483 535 469 581 463 606" fill="none" stroke="#fffbea" stroke-width="17" opacity=".58" stroke-linecap="round"/>
+ <path d="M559 464 Q546 522 558 566" fill="none" stroke="#c8a58c" stroke-width="7" opacity=".30" stroke-linecap="round"/>
+ <path d="M507 532 Q503 549 508 554" fill="none" stroke="#c7aa8f" opacity=".3" stroke-width="3"/>
+ <path d="M445 627 Q477 643 517 638" fill="none" stroke="#ffe9c9" stroke-width="6" opacity=".45"/>
+ </g></g></svg>

@@ -1,0 +1,34 @@
+{
+  "id": "mushroom",
+  "version": "0.6",
+  "type": "native-four-layer",
+  "notes": "4-stage transitions are derived from the same independent SVG master for interim use; no legacy raster cropped assets",
+  "stages": [
+    "healthy",
+    "thirsty",
+    "dry",
+    "critical",
+    "dead",
+    "sleep"
+  ],
+  "layers": [
+    "pot",
+    "stalk",
+    "cap",
+    "foliage"
+  ],
+  "canvas": [
+    694,
+    736
+  ],
+  "runtime": "plant-assets/mushroom/{stage}/{layer}.png",
+  "states": "plant-assets/mushroom/states/{stage}.png",
+  "idle": {
+    "pot": "static",
+    "stalk": "subtle",
+    "cap": "subtle",
+    "foliage": "subtle"
+  },
+  "dead": "static-no-revival",
+  "preserve_original": true
+}

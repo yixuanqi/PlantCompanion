@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img"><title>小蘑菇 sleep · 独立矢量分层原画</title><defs>
+    <linearGradient id="cap" x1="0" x2=".7" y1="0" y2="1"><stop offset="0" stop-color="#ffe6c4"/><stop offset=".27" stop-color="#f9a69f"/><stop offset=".65" stop-color="#f3a09f"/><stop offset="1" stop-color="#d77478"/></linearGradient>
+    <linearGradient id="underside" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcf2d8"/><stop offset="1" stop-color="#ceae91"/></linearGradient>
+    <linearGradient id="stalk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9b99a"/><stop offset=".28" stop-color="#fff4df"/><stop offset=".7" stop-color="#fbecd2"/><stop offset="1" stop-color="#d2b292"/></linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2=".8"><stop offset="0" stop-color="#f7dfb9"/><stop offset=".28" stop-color="#fffbeb"/><stop offset=".73" stop-color="#fff2d7"/><stop offset="1" stop-color="#e6bc9b"/></linearGradient>
+    <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e7ef9e"/><stop offset=".5" stop-color="#b4d678"/><stop offset="1" stop-color="#80ac66"/></linearGradient>
+    <linearGradient id="leafMid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c7df83"/><stop offset=".55" stop-color="#8fbc65"/><stop offset="1" stop-color="#6b9e5d"/></linearGradient>
+    <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#accb76"/><stop offset="1" stop-color="#6d9b5a"/></linearGradient>
+    <radialGradient id="petal"><stop offset="0" stop-color="#fffef3"/><stop offset=".8" stop-color="#ffeed8"/><stop offset="1" stop-color="#e8cbb4"/></radialGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#795c40"/><stop offset="1" stop-color="#b18a5b"/></linearGradient>
+    </defs><g id="layer-pot" transform=""><g id="pot" stroke-linejoin="round">
+  <path d="M306 626 C310 597 365 590 511 593 C665 594 711 603 714 630 C706 716 700 797 668 817 C628 850 401 850 354 817 C325 797 314 701 306 626Z" fill="url(#pot)" stroke="#bca08c" stroke-width="8"/>
+  <path d="M325 670 Q343 807 384 818 Q400 825 421 828" fill="none" stroke="#fff9e6" stroke-width="17" opacity=".64" stroke-linecap="round"/>
+  <path d="M682 660 C682 727 670 788 648 809" fill="none" stroke="#c89887" stroke-width="11" opacity=".32" stroke-linecap="round"/>
+  <path d="M313 614 C334 584 678 579 709 617 Q727 636 707 652 C675 678 352 675 314 647 Q298 636 313 614Z" fill="#fcebd1" stroke="#bb9981" stroke-width="8"/>
+  <ellipse cx="512" cy="624" rx="181" ry="25" fill="url(#soil)" stroke="#b39475" stroke-width="4"/>
+  <ellipse cx="510" cy="632" rx="163" ry="13" fill="#856344" opacity=".48"/>
+  <path d="M334 637 C374 663 647 671 690 643" fill="none" stroke="#fff2d8" stroke-width="12" opacity=".76" stroke-linecap="round"/>
+  <path d="M358 751 C371 759 384 750 387 732 C397 748 409 755 422 742 C416 758 425 766 438 769" fill="none" stroke="#dae2b2" stroke-width="7" opacity=".65" stroke-linecap="round"/>
+  <path d="M488 738 C468 711 437 729 452 752 C460 765 481 776 507 784 C529 773 552 759 558 746 C562 723 534 714 513 734 C502 742 499 741 488 738Z" fill="#f1d0be" opacity=".48"/>
+  <path d="M490 746 Q475 716 455 742 Q453 764 506 788 Q551 763 554 742 Q534 721 513 746Z" fill="#efcbb0" opacity=".72"/>
+  <path d="M505 742 Q502 711 487 702 Q481 731 505 743Z M505 742 Q531 714 549 722 Q536 742 505 742Z M507 743 Q483 765 497 785 Q513 769 507 743Z" fill="#b5c896" opacity=".63"/>
+  <g fill="#eecbb3" opacity=".62"><circle cx="390" cy="691" r="6"/><circle cx="414" cy="716" r="4"/><circle cx="617" cy="696" r="6"/><circle cx="642" cy="731" r="4"/><circle cx="421" cy="793" r="3"/></g>
+  <path d="M352 815 C414 854 615 856 670 812" fill="none" stroke="#bb9785" stroke-width="6" opacity=".72"/>
+ </g></g></svg>

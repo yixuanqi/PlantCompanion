@@ -1,67 +1,34 @@
 {
-  "schema_version": 1,
-  "species_id": "mushroom",
-  "art_status": "alpha_extracted_prototype_not_final",
-  "style": "pastel-handdrawn-storybook-no-faces",
-  "reference_source": "concept_only.png",
-  "size_px": [
-    256,
-    256
+  "id": "mushroom",
+  "version": "0.6",
+  "type": "native-four-layer",
+  "notes": "4-stage transitions are derived from the same independent SVG master for interim use; no legacy raster cropped assets",
+  "stages": [
+    "healthy",
+    "thirsty",
+    "dry",
+    "critical",
+    "dead",
+    "sleep"
   ],
-  "anchor": {
-    "pot_bottom_px": [
-      128,
-      246
-    ]
+  "layers": [
+    "pot",
+    "stalk",
+    "cap",
+    "foliage"
+  ],
+  "canvas": [
+    694,
+    736
+  ],
+  "runtime": "plant-assets/mushroom/{stage}/{layer}.png",
+  "states": "plant-assets/mushroom/states/{stage}.png",
+  "idle": {
+    "pot": "static",
+    "stalk": "subtle",
+    "cap": "subtle",
+    "foliage": "subtle"
   },
-  "states": {
-    "healthy": "states/healthy.png",
-    "thirsty": "states/thirsty.png",
-    "dry": "states/dry.png",
-    "critical": "states/critical.png",
-    "dead": "states/dead.png",
-    "sleep": "states/sleep.png"
-  },
-  "sequences": {
-    "idle_healthy": {
-      "dir": "sequences/idle_healthy",
-      "fps": 11,
-      "frames": 12,
-      "loop": true
-    },
-    "water_recover": {
-      "dir": "sequences/water_recover",
-      "fps": 11,
-      "frames": 12,
-      "loop": false
-    },
-    "go_to_sleep": {
-      "dir": "sequences/go_to_sleep",
-      "fps": 11,
-      "frames": 8,
-      "loop": false
-    },
-    "wake_up": {
-      "dir": "sequences/wake_up",
-      "fps": 11,
-      "frames": 8,
-      "loop": false
-    },
-    "death_once": {
-      "dir": "sequences/death_once",
-      "fps": 11,
-      "frames": 12,
-      "loop": false
-    }
-  },
-  "layers": {
-    "cap": "base/cap.png",
-    "stem": "base/stem.png",
-    "pot_and_leaves": "base/pot_and_leaves.png"
-  },
-  "known_limits": [
-    "not separately redrawn from a consistent master original",
-    "matte/fringes on some edges",
-    "cap and leaves are not yet fully articulated"
-  ]
+  "dead": "static-no-revival",
+  "preserve_original": true
 }

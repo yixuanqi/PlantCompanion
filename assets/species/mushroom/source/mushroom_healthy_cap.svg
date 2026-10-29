@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img"><title>小蘑菇 healthy · 独立矢量分层原画</title><defs>
+    <linearGradient id="cap" x1="0" x2=".7" y1="0" y2="1"><stop offset="0" stop-color="#ffe6c4"/><stop offset=".27" stop-color="#f9a69f"/><stop offset=".65" stop-color="#f3a09f"/><stop offset="1" stop-color="#d77478"/></linearGradient>
+    <linearGradient id="underside" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcf2d8"/><stop offset="1" stop-color="#ceae91"/></linearGradient>
+    <linearGradient id="stalk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9b99a"/><stop offset=".28" stop-color="#fff4df"/><stop offset=".7" stop-color="#fbecd2"/><stop offset="1" stop-color="#d2b292"/></linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2=".8"><stop offset="0" stop-color="#f7dfb9"/><stop offset=".28" stop-color="#fffbeb"/><stop offset=".73" stop-color="#fff2d7"/><stop offset="1" stop-color="#e6bc9b"/></linearGradient>
+    <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e7ef9e"/><stop offset=".5" stop-color="#b4d678"/><stop offset="1" stop-color="#80ac66"/></linearGradient>
+    <linearGradient id="leafMid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c7df83"/><stop offset=".55" stop-color="#8fbc65"/><stop offset="1" stop-color="#6b9e5d"/></linearGradient>
+    <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#accb76"/><stop offset="1" stop-color="#6d9b5a"/></linearGradient>
+    <radialGradient id="petal"><stop offset="0" stop-color="#fffef3"/><stop offset=".8" stop-color="#ffeed8"/><stop offset="1" stop-color="#e8cbb4"/></radialGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#795c40"/><stop offset="1" stop-color="#b18a5b"/></linearGradient>
+    </defs><g id="layer-cap" transform=""><g id="cap" stroke-linejoin="round">
+ <!-- gill underside remains physically attached to the cap layer -->
+ <path d="M222 482 C308 471 367 457 509 453 C635 449 733 457 808 483 Q796 518 746 530 C619 552 409 547 284 531 Q235 521 222 482Z" fill="url(#underside)" stroke="#b78e81" stroke-width="7"/>
+ <g fill="none" stroke="#a68b7a" opacity=".43" stroke-width="4" stroke-linecap="round">
+ <path d="M278 492 Q294 517 311 526 M328 490 Q347 518 363 534 M393 484 Q402 514 418 541 M465 479 Q468 518 476 544 M532 478 Q532 523 534 542 M598 482 Q597 522 589 539 M661 486 Q651 518 638 534 M730 488 Q716 511 704 528"/>
+ </g>
+ <path d="M230 478 C253 420 319 287 413 253 C469 231 525 226 574 242 C667 270 744 370 795 466 C809 486 792 497 759 503 C680 514 339 512 250 503 C222 497 215 492 230 478Z" fill="url(#cap)" stroke="#bd7779" stroke-width="8"/>
+ <path d="M260 455 C306 347 365 293 422 277" fill="none" stroke="#ffded0" stroke-width="16" opacity=".6" stroke-linecap="round"/>
+ <path d="M257 488 Q498 510 769 487" fill="none" stroke="#f8c9b9" stroke-width="9" opacity=".73" stroke-linecap="round"/>
+ <path d="M263 493 Q518 527 769 493" fill="none" stroke="#c8797d" stroke-width="4" opacity=".67"/>
+ <g fill="#fff1d4" stroke="#ffe1cc" stroke-width="2" opacity=".86">
+   <path d="M371 342 C365 320 392 305 414 314 C443 291 459 312 461 334 C451 356 416 359 397 350 C383 359 372 354 371 342Z"/>
+   <path d="M548 291 C566 274 584 291 588 309 C604 304 615 316 608 330 C578 338 552 326 548 291Z"/>
+   <path d="M691 405 C712 393 728 401 731 421 Q713 439 697 426Z"/>
+   <path d="M317 421 C332 408 343 414 342 430 Q326 443 317 421Z"/>
+   <ellipse cx="495" cy="367" rx="19" ry="13" transform="rotate(17 495 367)"/>
+   <ellipse cx="606" cy="386" rx="13" ry="9" transform="rotate(-15 606 386)"/>
+ </g>
+ <g fill="#ffe6c9" opacity=".65"><circle cx="341" cy="390" r="5"/><circle cx="425" cy="395" r="6"/><circle cx="521" cy="314" r="5"/><circle cx="646" cy="419" r="5"/><circle cx="572" cy="438" r="4"/><circle cx="707" cy="448" r="6"/></g>
+ <g fill="none" stroke="#ffddc7" stroke-width="3" stroke-linecap="round" opacity=".53"><path d="M306 462 Q327 451 346 457"/><path d="M454 292 Q472 283 489 287"/><path d="M624 348 Q646 368 654 384"/><path d="M551 466 Q561 462 569 466"/></g>
+ </g></g></svg>
