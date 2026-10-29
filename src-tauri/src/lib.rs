@@ -1,8 +1,10 @@
 //! Desktop shell: all lifecycle, inventory and wallet mutations pass through Rust + SQLite.
+mod widget_view;
+use widget_view::{WidgetViewState,get_widget_view,set_widget_view};
 use plant_life_core::{DrinkResult, Effect, Game, Settings, SleepReason, Species};
 use plant_store::PlantStore;
 use std::{fs, sync::Mutex, sync::atomic::{AtomicU64, Ordering}, thread, time::{Duration, Instant, SystemTime, UNIX_EPOCH}};
-use tauri::{Emitter, Manager, PhysicalPosition, State};
+use tauri::{Emitter, Manager, State};
 use tauri::{menu::{Menu, MenuItem}, tray::TrayIconBuilder};
 
 struct Shared { game: Mutex<Game>, store: Mutex<PlantStore> }
@@ -190,6 +192,7 @@ pub fn run(){
     tauri::Builder::default()
       .invoke_handler(tauri::generate_handler![
         get_snapshot,plant_seed,purchase_species,confirm_drink,
+        get_widget_view,set_widget_view,
         enter_manual_sleep,exit_manual_sleep,snooze_one_hour,update_settings
       ])
       .setup(|app|{
@@ -199,15 +202,11 @@ pub fn run(){
           let game=store.load_or_import(Some(&data.join("save-v1.json")))
               .map_err(|e|std::io::Error::other(e.to_string()))?;
           app.manage(Shared{game:Mutex::new(game),store:Mutex::new(store)});
+          let appearance=WidgetViewState::new(data.join("widget-view-v1.json"));
+          app.manage(appearance);
           if let Some(win)=app.get_webview_window("plant") {
-              if let Ok(Some(monitor))=win.current_monitor(){
-                  let a=monitor.work_area();let scale=monitor.scale_factor();
-                  let width=(300.0*scale).round() as i32;
-                  let height=(336.0*scale).round() as i32;
-                  let x=a.position.x+a.size.width as i32-width-10;
-                  let y=a.position.y+a.size.height as i32-height-6;
-                  let _=win.set_position(PhysicalPosition::new(x,y));
-              }
+              app.state::<WidgetViewState>().apply_startup(&win)
+                  .map_err(std::io::Error::other)?;
           }
           let show=MenuItem::with_id(app,"show","显示植物",true,None::<&str>)?;
           let settings=MenuItem::with_id(app,"settings","种子铺 / 设置",true,None::<&str>)?;
@@ -283,6 +282,12 @@ pub fn run(){
           Ok(())
       })
       .on_window_event(|window,event|{
+          if window.label()=="plant" {
+              if let tauri::WindowEvent::Moved(pos)=event {
+                  window.app_handle().state::<WidgetViewState>()
+                      .record_moved(*pos,window.app_handle().clone());
+              }
+          }
           if let tauri::WindowEvent::CloseRequested{api,..}=event {
               if window.label()=="settings" || window.label()=="plant" {
                   api.prevent_close();let _=window.hide();
