@@ -1,14 +1,11 @@
-> **v0.4 视觉修复更新**：挂件透明尺寸、局部动画与布局已修复；`browser_preview/visual_lab.html` 可直接检查，详见 `docs/15_v0.4_视觉修复记录与风险.md`。Rust/Windows 真机验收尚未完成。
+# Plant Companion v0.7 · Agent 执行入口
 
-# Plant Companion · AI Agent 编码入口（v0.3）
+优先阅读 `README_START_HERE.md`、`docs/17_单一资源与极简交互规范.md`、`docs/02_生命周期与睡眠状态机.md`。
 
-优先阅读 `README.md`、`VALIDATION.md`、`docs/02_生命周期与睡眠状态机.md`、`docs/05_动画与资源生产规范.md`。
-
-1. 两株植物仅 mint/mushroom、无五官、统一清新手绘风；保留基础 Idle、入睡、唤醒、恢复与状态过渡。
-2. **死亡不可逆、不会自动种植；用户可自由选择何时种下一代。** 死亡实例永久存纪念。
-3. Rust `life-core` 是唯一真实生命周期；UI 动画和浏览器模拟禁止决定死亡。
-4. `plant-store` 管理 SQLite 事务，钱包/死亡/纪念操作必须一次性提交；不得改回纯 JSON 真源。
-5. 提醒使用已确认活跃时间；手动睡眠、锁屏、夜间和空闲窗口不计入死亡阈值；不能先死亡再撤销。
-6. 每次修改先跑 `cargo test -p plant-life-core -p plant-store` 和 `npm run test:static`，再运行 `npm run build`，最后 Windows 真机验证 `npm run tauri dev/build`。
-7. 目前 Rust 测试尚未实际运行。第一项工作：在安装了 Rust 的 Windows 环境执行测试，修复全部编译/逻辑错误，提供真实 PASS 日志。严禁推测测试结果。
-8. 尚未完成的正式验收：Windows 会话通知精确处理、多屏/DPI/透明穿透、断电回归、精修美术资源。
+- 唯一可用蘑菇资源：`public/plant-assets/mushroom/`，其可编辑 SVG 母版位于 `assets/species/mushroom/source/`。禁止恢复旧版和重新制作从 256px 概念图切出的蘑菇 PNG。
+- 首发只有 mint 与 mushroom。小蘑菇六阶段与睡眠统一采用四图层 `pot / stalk / cap / foliage`，小薄荷仍采用三图层 `pot / stem / crown`。
+- 桌面挂件基准透明窗口 **268×292**；滚轮缩放到 50%–100% 时必须同步缩放真实 Tauri 窗口与前端画布。不再出现常驻状态条、拖动圆按钮或三点圆按钮。鼠标悬停植物查看状态，左键确认喝水，右键菜单操作，左键按住移动至少 7px 拖动；滚轮缩放，Ctrl+滚轮调植物透明度（仅命中实际可见植物像素）；系统托盘保留设置/睡眠/唤醒。
+- Rust `life-core` 是生命周期唯一真源。死亡不可逆、不自动重种；睡眠仅冻结时间，唤醒不重置饮水周期。
+- 任何状态不得回退使用旧蘑菇资源或把旧 `mushroom_v2` 再次添加。新增蘑菇状态现为同一 SVG 母版的算法过渡图，尚未达到最终手绘美术要求。
+- 先运行 `node scripts/build_preview.mjs && npm run test:static && tsc --noEmit -p tsconfig.static.json`，再在真正的 Windows 环境运行 `cargo test -p plant-life-core -p plant-store` 和 `npm run tauri dev`。本环境未验证 Windows 原生 GUI。
+- 禁止为了修视觉改动 SQLite、商店、种植或死亡规则。

@@ -1,4 +1,6 @@
-> **v0.4 视觉修复更新**：挂件透明尺寸、局部动画与布局已修复；`browser_preview/visual_lab.html` 可直接检查，详见 `docs/15_v0.4_视觉修复记录与风险.md`。Rust/Windows 真机验收尚未完成。
+> **最新 v0.7：** 先看 `README_START_HERE.md`；唯一新蘑菇资源，永久移除旧图与常驻底部操作条。
+
+
 
 # 桌面小植物 · 可开发工程 v0.3
 
@@ -17,7 +19,7 @@ Windows 右下角的无五官清新手绘植物：**小薄荷 + 小蘑菇**。�
 - `crates/plant-store`: SQLite 原子事务保存 Game + 钱包变更 + 纪念记录 + 关键事件（4 项 Rust 测试），支持 v0.2 JSON 首次迁移，不删除旧档。
 - `src-tauri`: 透明置顶植物窗、托盘菜单、自动空闲保护、Windows 活动桌面锁定检测（轮询）、30 秒 checkpoint、原生业务命令。
 - `src`: TypeScript 组件；UI 只通过 Tauri 命令更改业务数据。种子铺、图鉴、纪念、时间设置和手绘气泡。
-- `public/plant-assets`: 两株各六个生命/睡眠透明 PNG，动画序列。**两套都是技术素材，未达到逐叶片精修的商业美术标准。**
+- `public/plant-assets`: 两株各六个生命/睡眠透明 PNG；薄荷保留动画序列，蘑菇改为原生四图层程序动画。**两套都是技术素材，未达到逐叶片精修的商业美术标准。**
 - `browser_preview`: 独立本地 Web 模拟，**不代表原生 Rust 引擎**。
 
 ## Windows 开工与验证
@@ -48,3 +50,4 @@ python -m http.server 8060
 在本次生成环境中，**Node 模拟/静态检查 13/13 PASS，TypeScript 的项目静态替身类型检查 PASS**。本环境无 `cargo`/`rustc`，无法联网安装，也没有 Windows GUI，因此 **Rust 33 项测试未运行、正式 Tauri 编译与真机运行未验证，不能声称 Windows 成品完成**。
 
 剩余正式发布门禁：Windows 实际 Rust/Cargo 测试与 Tauri 构建，WTS 系统会话锁屏/挂起事件精确监听（当前使用轮询+超时保守保护），多屏/DPI/透明区域鼠标穿透，长期性能与断电恢复实测，真分层美术资源（技术抠图仍存在边缘瑕疵）。详见 `VALIDATION.md`。
+
